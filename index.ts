@@ -13,6 +13,7 @@ const evenements = parse(associationsText, { header: true });
 console.log("Les évènements", evenements);
 
 Bun.serve({
+  port: 5000,
   routes: {
     // Completer les routes ici
   },
