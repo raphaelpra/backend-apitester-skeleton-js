@@ -12,9 +12,11 @@ const evenementsText = await evenementsFile.text();
 const evenements = parse(associationsText, { header: true });
 console.log("Les évènements", evenements);
 
-Bun.serve({
+const server = Bun.serve({
   port: 5000,
   routes: {
     // Completer les routes ici
   },
 });
+
+console.log(`The server is started on port: ${server.port}`);
