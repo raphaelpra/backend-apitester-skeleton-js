@@ -12,10 +12,24 @@ const evenementsText = await evenementsFile.text();
 const evenements = parse(associationsText, { header: true });
 console.log("Les évènements", evenements);
 
+// On rajoute les headers CORS pour des raisons de sécurité
+const addCors = (res: any) => {
+  res.headers.set("Access-Control-Allow-Origin", "*");
+  res.headers.set(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS"
+  );
+  return res;
+};
+
 const server = Bun.serve({
-  port: 5000,
+  port: 5001,
   routes: {
-    // Completer les routes ici
+    "/api/associations": () => {
+      const res = Response.json(/* Le code a completer ici  */);
+      return addCors(res);
+    },
+    // Rajouter les routes manquantes
   },
 });
 
